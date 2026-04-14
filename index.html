@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake Indian Currency Detector</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Fake Indian Currency Detector</h1>
+
+    <div class="controls">
+      <div class="card">
+        <h2>Option 1 — Upload image</h2>
+        <input id="fileInput" type="file" accept="image/*" />
+        <p class="hint">Upload a photo of the note. The app will display whether it is fake or real and show the image dimensions.</p>
+      </div>
+
+      <div class="card">
+        <h2>Option 2 — Camera</h2>
+        <div id="cameraArea">
+          <video id="video" autoplay playsinline></video>
+          <div class="cameraButtons">
+            <button id="openCamera">Open Camera</button>
+            <button id="capture" disabled>Capture</button>
+            <button id="closeCamera" disabled>Close</button>
+          </div>
+        </div>
+        <p class="hint">Click "Open Camera" to allow camera access, then capture a photo of the note.</p>
+      </div>
+    </div>
+
+    <div class="preview card">
+      <h2>Preview & Result</h2>
+
+      <div id="imageBox" class="imageBox">
+        <span class="placeholder">No image selected</span>
+        <img id="previewImage" alt="preview" style="display:none" />
+      </div>
+
+      <div id="result" class="result" style="display:none">
+        <div id="label" class="label"></div>
+        <div id="confidence" class="confidence"></div>
+        <div id="dimensions" class="dimensions"></div>
+      </div>
+
+      <div id="status" class="status"></div>
+    </div>
+
+  </div>
+
+  <canvas id="captureCanvas" style="display:none"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
